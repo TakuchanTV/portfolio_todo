@@ -8,6 +8,7 @@ export const Test = () => {
            <p className={styles.span}>この行が最新のデプロイに反映されているか確認します</p>
            <div>
             <p className={styles.test}>この文章は8/25に更新されたものです</p>
+            <p className={styles.test}>自動デプロイ確認できました</p>
            </div> 
         </div>
     )
