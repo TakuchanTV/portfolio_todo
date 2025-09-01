@@ -1,0 +1,11 @@
+div{
+    text-align: center;
+}
+p{
+    font-size: 30px;
+    background-color: aqua;
+    width: 100%;
+}
+.test{
+    background-color: chartreuse;
+}
