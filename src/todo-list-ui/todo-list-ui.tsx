@@ -1,7 +1,5 @@
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 import styles from "./todo-list-ui.module.css"
-import { text } from 'stream/consumers';
-import { Interface } from 'readline';
 
 interface Task {
   id:number
@@ -10,8 +8,23 @@ interface Task {
 }
 
 export const Todo_List_UI = () => {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<Task[]>(() => {
+    const stored = localStorage.getItem("tasks");
+    if (!stored) return[];
+    try {
+      return JSON.parse(stored) as Task[]
+    } catch (error) {
+      console.log(error);
+      return [];
+    }
+
+  });
   const [newTask, setNewTask] = useState<string>("")
+
+
+  useEffect(() => {
+    localStorage.setItem("tasks",JSON.stringify(tasks));
+  },[tasks])
 
   const addTask = () => {
     if (newTask.trim() === "") return;
