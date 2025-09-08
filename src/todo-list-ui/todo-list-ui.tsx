@@ -91,7 +91,6 @@ export const Todo_List_UI = () => {
             </li>
           ))}
         </ul>
-
       <div className={styles.ButtonGroup}>
         <button className={styles.ControlButton} onClick={navigate_Timer}>Timer</button>
         <button className={styles.ControlButton} onClick={navigate_Stopwatch}>Stopwatch</button>
