@@ -93,7 +93,7 @@ export const Timer_Page = () => {
     useEffect(() => {
     if (timerState === 'end') {
       playSound();
-      alarmIntervalRef.current = setInterval(playSound, 3000);
+      alarmIntervalRef.current = setInterval(playSound, 2000);
     } else {
       if (alarmIntervalRef.current) {
         clearInterval(alarmIntervalRef.current);
