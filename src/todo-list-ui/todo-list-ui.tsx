@@ -53,6 +53,9 @@ export const Todo_List_UI = () => {
   const navigate_Timer = () => {
     navigate("timer")
   }
+  const navigate_Stopwatch = () => {
+    navigate("stopwatch")
+  }
 
   return (
     <div>
@@ -89,8 +92,11 @@ export const Todo_List_UI = () => {
           ))}
         </ul>
 
+      <div className={styles.ButtonGroup}>
+        <button className={styles.ControlButton} onClick={navigate_Timer}>Timer</button>
+        <button className={styles.ControlButton} onClick={navigate_Stopwatch}>Stopwatch</button>
       </div>
-      <button onClick={navigate_Timer}>Timerページに遷移します</button>
+      </div>
     </div>
 
   )

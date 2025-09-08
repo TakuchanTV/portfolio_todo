@@ -162,6 +162,7 @@ export const Timer_Page = () => {
                 <button className={styles.ControlButton} onClick={start}>start</button>
                 <button className={styles.ControlButton} onClick={stop}>stop</button>
                 <button className={styles.ControlButton} onClick={reset}>reset</button>
+                <button className={styles.ControlButton} onClick={navigateHome}>Home</button>
             </div>
             {/* タイマーが end 状態のときだけ表示 */}
             {timerState === 'end' && (
@@ -171,7 +172,7 @@ export const Timer_Page = () => {
                     </button>
                 </div>
             )}
-            <button className={styles.navigateHome} onClick={navigateHome}>Homeページに戻ります</button>
+            
         </div>
     )
 }
