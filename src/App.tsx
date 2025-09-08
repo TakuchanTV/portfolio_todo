@@ -2,6 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Todo_List_UI } from './todo-list-ui/todo-list-ui';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Timer_Page } from './timer-page/timer-page';
 
 
 function App() {
@@ -22,7 +24,12 @@ function App() {
     //     </a>
     //   </header>
     // </div>
-    <Todo_List_UI />
+    <BrowserRouter>
+     <Routes>
+       <Route path='/' element={ <Todo_List_UI />} />
+       <Route path='timer' element={ <Timer_Page />} />
+     </Routes>
+    </BrowserRouter>
   );
 }
 
