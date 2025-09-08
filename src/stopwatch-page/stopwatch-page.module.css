@@ -18,6 +18,8 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .ButtonGroup {
@@ -48,4 +50,54 @@
 .ControlButton:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+@media screen and (max-width:760px) {
+  .Display {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #000;
+  background-color: #fff;
+  padding: 1rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+}
+
+@media screen and (max-width:487px) {
+  .Display {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #000;
+  background-color: #fff;
+  padding: 1rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  justify-content: center;
+  align-items: center;
+  scale: 0.7;
+}
+}
+
+@media screen and (max-width:350px) {
+  .Display {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #000;
+  background-color: #fff;
+  padding: 1rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  justify-content: center;
+  align-items: center;
+  scale: 0.6;
+}
 }
