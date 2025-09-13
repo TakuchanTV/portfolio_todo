@@ -13,22 +13,50 @@ export const Stopwatch_Page = () => {
     }
 
     useEffect(() => {
+        localStorage.getItem("stopwatch-time");
+        const storedTime = localStorage.getItem('stopwatch-time');
+        const storedRunning = localStorage.getItem('stopwatch-running');
+
+        if (storedTime) setTime(Number(storedTime));
+        if (storedRunning) setIsRunning(JSON.parse(storedRunning));
+    }, [])
+
+
+    useEffect(() => {
         if (!isRunning) return;
 
-        const id = window.setInterval(() => {
-            setTime(prevTime => prevTime + 10)
+        const intervalId = window.setInterval(() => {
+            const start = localStorage.getItem('stopwatch-start');
+            if (start) {
+                const elapsed = Date.now() - Number(start);
+                setTime(elapsed);
+                localStorage.setItem('stopwatch-time', String(elapsed));
+            }
         }, 10);
-        return () => clearInterval(id);
 
-    }, [isRunning])
+        return () => clearInterval(intervalId);
+    }, [isRunning]);
 
-    const handleStart = () => setIsRunning(true);
-    const handlePause = () => setIsRunning(false);
+
+
+    const handleStart = () => {
+        const now = Date.now();
+        localStorage.setItem("stopwatch-start", String(now - time));
+        localStorage.setItem("stopwatch-running", JSON.stringify(true));
+        setIsRunning(true);
+    }
+    const handlePause = () => {
+        setIsRunning(false);
+        localStorage.setItem("stopwatch-running",JSON.stringify(false));
+    }
 
 
     const handleReset = () => {
         setIsRunning(false);
         setTime(0);
+        localStorage.removeItem("stopwatch-start");
+        localStorage.removeItem("stopwatch-time");
+        localStorage.setItem("stopwatch-running", JSON.stringify(false));
     }
 
     const ms = `0${Math.floor((time % 1000) / 10)}`.slice(-2);
@@ -55,7 +83,7 @@ export const Stopwatch_Page = () => {
                         type="button"
                         className={styles.ControlButton}
                         onClick={handleStart}
-                       
+
                     >
                         Start
                     </button>
@@ -65,7 +93,7 @@ export const Stopwatch_Page = () => {
                     type="button"
                     className={styles.ControlButton}
                     onClick={handleReset}
-                   
+
                 >
                     Reset
                 </button>
